@@ -37,10 +37,6 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class TestDolap {
-	private static final String RIGHT = "RIGHT";
-	private static final String LEFT = "LEFT";
-	private static final String UP = "UP";
-	private static final String DOWN = "DOWN";
 	public static URL url;
 	public static DesiredCapabilities capabilities;
 	public static AndroidDriver<MobileElement> driver;
@@ -185,9 +181,6 @@ public class TestDolap {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
-	private void goToPrev() {
-		driver.findElement(By.id("com.dolap.android:id/imageViewBack")).click();
-	}
 
 	public static void clickByCoordinate(int x, int y) {
 		try {
