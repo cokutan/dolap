@@ -47,7 +47,6 @@ public class TestDolap {
 		// 2
 		final String URL_STRING = "http://127.0.0.1:4723/wd/hub";
 		url = new URL(URL_STRING);
-//3
 		capabilities = new DesiredCapabilities();
 
 		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
