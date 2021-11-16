@@ -51,9 +51,11 @@ public class TestDolap {
 
 		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("platformName", "ANDROID");
-		capabilities.setCapability("deviceName", "S7");
-		capabilities.setCapability("deviceId", "192.168.1.21:5555");
-		capabilities.setCapability("platformVersion", "8.0");
+		//capabilities.setCapability("deviceName", "S7");
+		//capabilities.setCapability("deviceId", "192.168.1.21:5555");
+		//capabilities.setCapability("platformVersion", "8.0");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+		capabilities.setCapability("platformVersion", "7.1.1");
 		capabilities.setCapability("appPackage", "com.dolap.android");
 		capabilities.setCapability("appActivity", "com.dolap.android.init.ui.SplashActivity");
 
@@ -63,7 +65,7 @@ public class TestDolap {
 
 		// 4
 		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@Test(enabled = true)
@@ -88,7 +90,7 @@ public class TestDolap {
 			handleTwoListings(element);
 			wait20Seconds(element);
 			// scrolToOtherDual();
-			swipeVertical(0.1, 0.59, 0.5, 3000);
+			swipeVertical(0.1, 0.492, 0.5, 3000);
 			wait20Seconds(element);
 			endOfPage = previousPageSource.equals(driver.getPageSource());
 			previousPageSource = driver.getPageSource();
@@ -124,13 +126,13 @@ public class TestDolap {
 
 	private void handleTwoListings(MobileElement element) {
 
-		clickByCoordinate(200, 1000);
+		clickByCoordinate(200, 700);
 		loveProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 1000);
+		clickByCoordinate(700, 700);
 		loveProduct();
 		driverBack();
 	}
@@ -138,8 +140,8 @@ public class TestDolap {
 	private void loveProduct() {
 
 		driver.findElement(By.id("com.dolap.android:id/imageViewFavorite")).click();
-		swipeVertical(0.1, 0.8, 0.5, 5000);
-		swipeVertical(0.1, 0.8, 0.5, 5000);
+		swipeVertical(0.1, 0.6, 0.5, 5000);
+		swipeVertical(0.1, 0.6, 0.5, 5000);
 		driver.findElement(By.id("com.dolap.android:id/buttonProductCommentsNavigator")).click();
 		MobileElement editTextComment = driver.findElement(By.id("com.dolap.android:id/editTextComment"));
 		editTextComment.click();
@@ -176,7 +178,7 @@ public class TestDolap {
 	}
 
 	private void wait20Seconds(MobileElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 

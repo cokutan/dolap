@@ -38,8 +38,12 @@ public class TestFavoriSil {
 
 		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("platformName", "ANDROID");
-		capabilities.setCapability("deviceName", "S7");
-		capabilities.setCapability("platformVersion", "8.0");
+		//capabilities.setCapability("deviceName", "S7");
+		//capabilities.setCapability("deviceId", "192.168.1.21:5555");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+		//capabilities.setCapability(MobileCapabilityType.UDID, "OnePlus5");
+		//capabilities.setCapability("platformVersion", "8.0");
+		capabilities.setCapability("platformVersion", "7.1.1");
 		capabilities.setCapability("appPackage", "com.dolap.android");
 		capabilities.setCapability("appActivity", "com.dolap.android.init.ui.SplashActivity");
 

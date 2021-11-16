@@ -46,9 +46,11 @@ public class TestCokutanFavoriSil {
 
 		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("platformName", "ANDROID");
-		capabilities.setCapability("deviceName", "S7");
-		capabilities.setCapability("deviceId", "192.168.1.21:5555");
-		capabilities.setCapability("platformVersion", "8.0");
+		//capabilities.setCapability("deviceName", "S7");
+		//capabilities.setCapability("deviceId", "192.168.1.21:5555");
+		//capabilities.setCapability("platformVersion", "8.0");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+		capabilities.setCapability("platformVersion", "7.1.1");
 		capabilities.setCapability("appPackage", "com.dolap.android");
 		capabilities.setCapability("appActivity", "com.dolap.android.init.ui.SplashActivity");
 
@@ -90,7 +92,7 @@ public class TestCokutanFavoriSil {
 			handleTwoListings(element);
 			wait20Seconds(element);
 			// scrolToOtherDual();
-			swipeVertical(0.1, 0.59, 0.5, 3000);
+			swipeVertical(0.1, 0.492, 0.5, 3000);
 			wait20Seconds(element);
 			endOfPage = previousPageSource.equals(driver.getPageSource());
 			previousPageSource = driver.getPageSource();
@@ -99,13 +101,13 @@ public class TestCokutanFavoriSil {
 
 	private void handleTwoListings(MobileElement element) {
 
-		clickByCoordinate(200, 1000);
+		clickByCoordinate(200, 700);
 		cleanupProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 1000);
+		clickByCoordinate(700, 700);
 		cleanupProduct();
 		driverBack();
 	}
@@ -132,7 +134,7 @@ public class TestCokutanFavoriSil {
 	}
 
 	private void wait20Seconds(MobileElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
