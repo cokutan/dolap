@@ -176,7 +176,7 @@ public class TestDolap {
 	}
 
 	private void wait20Seconds(MobileElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 

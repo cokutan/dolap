@@ -130,16 +130,43 @@
                   <a name="testBasicNoTitle">
                   </a> <!-- testBasicNoTitle -->
                   <span class="method-name">testBasicNoTitle</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[io.appium.java_client.android.AndroidDriver, Capabilities: {appActivity=com.dolap.android.init.ui.SplashActivity, appPackage=com.dolap.android, automationName=UiAutomator1, browserName=, databaseEnabled=false, desired={browserName=, platformName=android, deviceId=192.168.1.21:5555, appActivity=com.dolap.android.init.ui.SplashActivity, appPackage=com.dolap.android, automationName=UiAutomator1, deviceName=S7, fullReset=false, noReset=true, platformVersion=8.0}, deviceId=192.168.1.21:5555, deviceManufacturer=samsung, deviceModel=SM-G930F, deviceName=192.168.1.21:5555, deviceScreenSize=1440x2560, deviceUDID=192.168.1.21:5555, fullReset=false, javascriptEnabled=true, locationContextEnabled=false, networkConnectionEnabled=true, noReset=true, platform=LINUX, platformName=ANDROID, platformVersion=8.0.0, takesScreenshot=true, warnings={}, webStorageEnabled=false}] -&gt; id: com.dolap.android:id/textViewSearchBar] (tried for 20 second(s) with 500 milliseconds interval)
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:186d:8406:9d4:6de1%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;11.6&apos;, java.version: &apos;17&apos;
+System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:c51:2fb5:aea7:117b%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.0.1&apos;, java.version: &apos;17&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , databaseEnabled: false, desired: {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , deviceId: 192.168.1.21:5555, deviceName: S7, fullReset: false, noReset: true, platformName: android, platformVersion: 8.0}, deviceId: 192.168.1.21:5555, deviceManufacturer: samsung, deviceModel: SM-G930F, deviceName: 192.168.1.21:5555, deviceScreenSize: 1440x2560, deviceUDID: 192.168.1.21:5555, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, platform: LINUX, platformName: ANDROID, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
-Session ID: e7ce7a45-ae30-4e78-8dff-753a49c00299
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at dolap.TestDolap.wait20Seconds(TestDolap.java:180)
-	at dolap.TestDolap.doProductJobs(TestDolap.java:89)
+Session ID: 4cde87d7-7b4d-40df-a14a-f0c39f09ee49
+*** Element info: {Using=id, value=com.dolap.android:id/imageViewFavorite}
+	at jdk.internal.reflect.GeneratedConstructorAccessor12.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at dolap.TestDolap.loveProduct(TestDolap.java:140)
+	at dolap.TestDolap.handleTwoListings(TestDolap.java:128)
+	at dolap.TestDolap.doProductJobs(TestDolap.java:88)
 	at dolap.TestDolap.testBasicNoTitle(TestDolap.java:80)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -178,7 +205,7 @@ Session ID: e7ce7a45-ae30-4e78-8dff-753a49c00299
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/yj/47zrkmyn4wn3pdj_ll9nsft40000gn/T/testng-eclipse-1996720538/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/yj/47zrkmyn4wn3pdj_ll9nsft40000gn/T/testng-eclipse--889870620/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -231,12 +258,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testBasicNoTitle')
 data.setCell(0, 2, 'dolap.TestDolap')
-data.setCell(0, 3, 323505);
+data.setCell(0, 3, 2489368);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 minutes</span>
+              <span class="suite-total-time">Total running time: 41 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -271,7 +298,7 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testBasicNoTitle</span>
-                <span class="method-start">9021 ms</span>
+                <span class="method-start">6533 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
