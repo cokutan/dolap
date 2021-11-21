@@ -63,7 +63,7 @@ public class TestDolap {
 
 		// 4
 		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
 
 	@Test(enabled = true)
@@ -87,8 +87,7 @@ public class TestDolap {
 		while (!endOfPage) {
 			handleTwoListings(element);
 			wait20Seconds(element);
-			// scrolToOtherDual();
-			swipeVertical(0.1, 0.59, 0.5, 3000);
+			swipeVertical(0.1, 0.49, 0.5, 1000);
 			wait20Seconds(element);
 			endOfPage = previousPageSource.equals(driver.getPageSource());
 			previousPageSource = driver.getPageSource();
@@ -124,13 +123,13 @@ public class TestDolap {
 
 	private void handleTwoListings(MobileElement element) {
 
-		clickByCoordinate(200, 1000);
+		clickByCoordinate(200, 1100);
 		loveProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 1000);
+		clickByCoordinate(700, 1100);
 		loveProduct();
 		driverBack();
 	}
@@ -138,8 +137,8 @@ public class TestDolap {
 	private void loveProduct() {
 
 		driver.findElement(By.id("com.dolap.android:id/imageViewFavorite")).click();
-		swipeVertical(0.1, 0.8, 0.5, 5000);
-		swipeVertical(0.1, 0.8, 0.5, 5000);
+		swipeVertical(0.1, 0.79, 0.5, 1000);
+		//swipeVertical(0.1, 0.4, 0.5, 1000);
 		driver.findElement(By.id("com.dolap.android:id/buttonProductCommentsNavigator")).click();
 		MobileElement editTextComment = driver.findElement(By.id("com.dolap.android:id/editTextComment"));
 		editTextComment.click();
@@ -176,7 +175,7 @@ public class TestDolap {
 	}
 
 	private void wait20Seconds(MobileElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver, 3);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 

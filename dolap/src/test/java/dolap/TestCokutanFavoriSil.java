@@ -58,7 +58,7 @@ public class TestCokutanFavoriSil {
 
 		// 4
 		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
 
 	/*
@@ -90,7 +90,7 @@ public class TestCokutanFavoriSil {
 			handleTwoListings(element);
 			wait20Seconds(element);
 			// scrolToOtherDual();
-			swipeVertical(0.1, 0.59, 0.5, 3000);
+			swipeVertical(0.1, 0.49, 0.5, 1000);
 			wait20Seconds(element);
 			endOfPage = previousPageSource.equals(driver.getPageSource());
 			previousPageSource = driver.getPageSource();
@@ -99,13 +99,13 @@ public class TestCokutanFavoriSil {
 
 	private void handleTwoListings(MobileElement element) {
 
-		clickByCoordinate(200, 1000);
+		clickByCoordinate(200, 1100);
 		cleanupProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 1000);
+		clickByCoordinate(700, 1100);
 		cleanupProduct();
 		driverBack();
 	}
@@ -117,8 +117,8 @@ public class TestCokutanFavoriSil {
 	private void cleanupProduct() {
 
 		driver.findElement(By.id("com.dolap.android:id/imageViewFavorite")).click();
-		swipeVertical(0.1, 0.8, 0.5, 5000);
-		swipeVertical(0.1, 0.8, 0.5, 5000);
+		swipeVertical(0.1, 0.7, 0.5, 1000);
+	//	swipeVertical(0.1, 0.39, 0.5, 1000);
 		try {
 			MobileElement deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
 			if (deleteButton.isDisplayed()) {
@@ -132,7 +132,7 @@ public class TestCokutanFavoriSil {
 	}
 
 	private void wait20Seconds(MobileElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 3);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
