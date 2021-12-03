@@ -2,6 +2,7 @@ package dolap;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -49,7 +50,7 @@ public class TestFavoriSil {
 	    
 		// 4
 		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	/*
@@ -92,20 +93,20 @@ public class TestFavoriSil {
 		element.click();
 */		
 		driver.findElement(By.id("com.dolap.android:id/bottomNavMyAccount")).click();
-		if(! driver.findElement(By.id("com.dolap.android:id/accountName")).getText().equals("wpcgl")) {
+		if(!Arrays.asList("@wpcgl", "@dolap1616214080")
+				.contains(driver.findElement(By.id("com.dolap.android:id/userNameTitle")).getText()))  {
 			throw new Exception("I am not the one !!");
 		}
 
 		
-		driver.findElement(By.id("com.dolap.android:id/myFavoritesNavigationLayout")).click();
+		driver.findElementByXPath("//android.widget.TextView[@text='Favorilerim']").click();
 		
 		while(driver.findElements(By.id("com.dolap.android:id/imageViewLike")).size()>0) {
 			MobileElement element = driver.findElement(By.id("com.dolap.android:id/imageViewLike"));
 			element.click();
 
 	        driver.navigate().back();
-	    	driver.findElement(By.id("com.dolap.android:id/myFavoritesNavigationLayout")).click();
-
+	        driver.findElementByXPath("//android.widget.TextView[@text='Favorilerim']").click();
 		}
 		
 		
