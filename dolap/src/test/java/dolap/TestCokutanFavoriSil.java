@@ -3,6 +3,7 @@ package dolap;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,7 +59,7 @@ public class TestCokutanFavoriSil {
 
 		// 4
 		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	/*
@@ -72,7 +73,8 @@ public class TestCokutanFavoriSil {
 	public void testBasicNoTitle() throws Exception {
 
 		driver.findElement(By.id("com.dolap.android:id/bottomNavMyAccount")).click();
-		if(! driver.findElement(By.id("com.dolap.android:id/accountName")).getText().equals("wpcgl")) {
+		if(!Arrays.asList("@wpcgl", "@dolap1616214080")
+				.contains(driver.findElement(By.id("com.dolap.android:id/userNameTitle")).getText())) {
 			throw new Exception("I am not the one !!");
 		}
 		driver.findElement(By.id("com.dolap.android:id/bottomNavHomePage")).click();
@@ -89,8 +91,7 @@ public class TestCokutanFavoriSil {
 		while (!endOfPage) {
 			handleTwoListings(element);
 			wait20Seconds(element);
-			// scrolToOtherDual();
-			swipeVertical(0.1, 0.49, 0.5, 1000);
+			swipeVertical(0.1, 0.487, 0.5, 1000);
 			wait20Seconds(element);
 			endOfPage = previousPageSource.equals(driver.getPageSource());
 			previousPageSource = driver.getPageSource();
@@ -118,21 +119,24 @@ public class TestCokutanFavoriSil {
 
 		driver.findElement(By.id("com.dolap.android:id/imageViewFavorite")).click();
 		swipeVertical(0.1, 0.7, 0.5, 1000);
-	//	swipeVertical(0.1, 0.39, 0.5, 1000);
+		deleteComment();
+	}
+
+	private void deleteComment() {
 		try {
 			MobileElement deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
 			if (deleteButton.isDisplayed()) {
 				driver.findElement(By.id("com.dolap.android:id/textViewDelete")).click();
 				driver.findElement(By.id("com.dolap.android:id/textViewDelete")).click();
 				driver.findElement(By.id("com.dolap.android:id/button_action_two")).click();
-				driver.findElement(By.id("com.dolap.android:id/imageViewBackButton")).click();
+				driverBack();
 			}
 		} catch (NoSuchElementException ex) {
 		}
 	}
 
 	private void wait20Seconds(MobileElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 3);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
