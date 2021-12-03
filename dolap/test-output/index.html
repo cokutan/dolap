@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="dolap.TestDolap" class="method navigator-link" hash-for-method="testBasicNoTitle">testBasicNoTitle</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="dolap.TestFavoriSil" class="method navigator-link" hash-for-method="testBasicNoTitle">testBasicNoTitle</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -122,7 +122,7 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">dolap.TestDolap</span>
+              <span class="class-name">dolap.TestFavoriSil</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -130,12 +130,14 @@
                   <a name="testBasicNoTitle">
                   </a> <!-- testBasicNoTitle -->
                   <span class="method-name">testBasicNoTitle</span>
-                  <div class="stack-trace">org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: UiAUtomator shut down unexpectedly
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:1459:c9e:efe6:3bf3%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.0.1&apos;, java.version: &apos;17&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , databaseEnabled: false, desired: {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , deviceId: 192.168.1.21:5555, deviceName: S7, fullReset: false, noReset: true, platformName: android, platformVersion: 8.0}, deviceId: 192.168.1.21:5555, deviceManufacturer: samsung, deviceModel: SM-G930F, deviceName: 192.168.1.21:5555, deviceScreenSize: 1440x2560, deviceUDID: 192.168.1.21:5555, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, platform: LINUX, platformName: ANDROID, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
-Session ID: 1ed00e89-d809-4367-9be3-03cbb35d8495
+Capabilities {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , databaseEnabled: false, desired: {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , deviceName: S7, fullReset: false, noReset: true, platformName: android, platformVersion: 8.0}, deviceManufacturer: samsung, deviceModel: SM-G930F, deviceName: 192.168.1.21:5555, deviceScreenSize: 1440x2560, deviceUDID: 192.168.1.21:5555, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, platform: LINUX, platformName: ANDROID, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
+Session ID: 91f34dba-1b23-47f3-b7d8-62021c6c59f4
+*** Element info: {Using=id, value=com.dolap.android:id/myFavoritesNavigationLayout}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -150,13 +152,20 @@ Session ID: 1ed00e89-d809-4367-9be3-03cbb35d8495
 	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
 	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at io.appium.java_client.DefaultGenericMobileElement.execute(DefaultGenericMobileElement.java:45)
-	at io.appium.java_client.MobileElement.execute(MobileElement.java:1)
-	at io.appium.java_client.android.AndroidElement.execute(AndroidElement.java:1)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:106)
-	at dolap.TestDolap.cokutanbArat(TestDolap.java:120)
-	at dolap.TestDolap.testBasicNoTitle(TestDolap.java:80)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
+	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
+	at dolap.TestFavoriSil.testBasicNoTitle(TestFavoriSil.java:109)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -194,7 +203,7 @@ Session ID: 1ed00e89-d809-4367-9be3-03cbb35d8495
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/yj/47zrkmyn4wn3pdj_ll9nsft40000gn/T/testng-eclipse--1729585523/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/yj/47zrkmyn4wn3pdj_ll9nsft40000gn/T/testng-eclipse--454293469/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -203,7 +212,7 @@ Session ID: 1ed00e89-d809-4367-9be3-03cbb35d8495
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;dolap.TestDolap&quot;/&gt;
+      &lt;class name=&quot;dolap.TestFavoriSil&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -246,13 +255,13 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testBasicNoTitle')
-data.setCell(0, 2, 'dolap.TestDolap')
-data.setCell(0, 3, 19534);
+data.setCell(0, 2, 'dolap.TestFavoriSil')
+data.setCell(0, 3, 16722);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 19 seconds</span>
+              <span class="suite-total-time">Total running time: 16 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -278,7 +287,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">dolap.TestDolap</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">dolap.TestFavoriSil</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setupAppium</span>
                 <span class="method-start">0 ms</span>
@@ -287,7 +296,7 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testBasicNoTitle</span>
-                <span class="method-start">6759 ms</span>
+                <span class="method-start">5633 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
