@@ -118,8 +118,29 @@ public class TestCokutanFavoriSil {
 	private void cleanupProduct() {
 
 		driver.findElement(By.id("com.dolap.android:id/imageViewFavorite")).click();
-		swipeVertical(0.1, 0.7, 0.5, 1000);
+		//swipeVertical(0.1, 0.7, 0.5, 1000);
+		//deleteComment();
+		
+MobileElement comment = null;
+		
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		try {
+			comment = driver.findElement(By.id("com.dolap.android:id/buttonProductCommentsNavigator"));
+		} catch (NoSuchElementException ex) {
+
+			while (comment == null) {
+				swipeVertical(0.1, 0.5, 0.5, 1000);
+				try {
+					comment = driver.findElement(By.id("com.dolap.android:id/buttonProductCommentsNavigator"));
+				} catch (NoSuchElementException ex2) {
+
+				}
+			}
+		}
+		
 		deleteComment();
+
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	private void deleteComment() {
