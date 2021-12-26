@@ -133,13 +133,12 @@
                   <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:1036:95db:1286:96a8%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.0.1&apos;, java.version: &apos;17&apos;
+System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:63:173a:89bf:6542%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.0.1&apos;, java.version: &apos;17&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , databaseEnabled: false, desired: {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , deviceId: 192.168.1.21:5555, deviceName: S7, fullReset: false, noReset: true, platformName: android, platformVersion: 8.0}, deviceId: 192.168.1.21:5555, deviceManufacturer: samsung, deviceModel: SM-G930F, deviceName: 192.168.1.21:5555, deviceScreenSize: 1440x2560, deviceUDID: 192.168.1.21:5555, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, platform: LINUX, platformName: ANDROID, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
-Session ID: d1fa7ba7-c98c-4d76-963b-c5306bacaa7a
-*** Element info: {Using=id, value=com.dolap.android:id/bottomNavMyAccount}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+Session ID: cd248d3c-82a6-42d5-8672-d37bce566003
+*** Element info: {Using=id, value=com.dolap.android:id/imageViewFavorite}
+	at jdk.internal.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
@@ -165,7 +164,10 @@ Session ID: d1fa7ba7-c98c-4d76-963b-c5306bacaa7a
 	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
 	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
 	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at dolap.TestCokutanFavoriSil.testBasicNoTitle(TestCokutanFavoriSil.java:75)
+	at dolap.TestCokutanFavoriSil.cleanupProduct(TestCokutanFavoriSil.java:120)
+	at dolap.TestCokutanFavoriSil.handleTwoListings(TestCokutanFavoriSil.java:110)
+	at dolap.TestCokutanFavoriSil.doProductCleanupJobs(TestCokutanFavoriSil.java:92)
+	at dolap.TestCokutanFavoriSil.testBasicNoTitle(TestCokutanFavoriSil.java:85)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -203,7 +205,7 @@ Session ID: d1fa7ba7-c98c-4d76-963b-c5306bacaa7a
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/yj/47zrkmyn4wn3pdj_ll9nsft40000gn/T/testng-eclipse--291881289/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/yj/47zrkmyn4wn3pdj_ll9nsft40000gn/T/testng-eclipse-320978839/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -256,12 +258,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testBasicNoTitle')
 data.setCell(0, 2, 'dolap.TestCokutanFavoriSil')
-data.setCell(0, 3, 6299);
+data.setCell(0, 3, 566672);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 9 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -296,7 +298,7 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testBasicNoTitle</span>
-                <span class="method-start">16773 ms</span>
+                <span class="method-start">12304 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

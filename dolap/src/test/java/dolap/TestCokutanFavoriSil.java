@@ -59,7 +59,7 @@ public class TestCokutanFavoriSil {
 
 		// 4
 		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 	}
 
 	/*
