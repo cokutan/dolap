@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,10 +23,8 @@ import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -34,7 +34,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class TestCokutanFavoriSil {
 	public static URL url;
 	public static DesiredCapabilities capabilities;
-	public static AndroidDriver<MobileElement> driver;
+	public static AndroidDriver driver;
 
 	// 1
 	@BeforeSuite
@@ -56,10 +56,15 @@ public class TestCokutanFavoriSil {
 		capabilities.setCapability("automationName", "UiAutomator1");
 		capabilities.setCapability("noReset", true);
 		capabilities.setCapability("fullReset", false);
-
+		capabilities.setCapability("unicodeKeyboard", true);
+		capabilities.setCapability("resetKeyboard", true);
 		// 4
-		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		driver = new AndroidDriver(url, capabilities);
+		imlicitlyWait();
+	}
+
+	private void imlicitlyWait() {
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
 
 	/*
@@ -73,19 +78,18 @@ public class TestCokutanFavoriSil {
 	public void testBasicNoTitle() throws Exception {
 
 		driver.findElement(By.id("com.dolap.android:id/bottomNavMyAccount")).click();
-		if(!Arrays.asList("@wpcgl", "@dolap1616214080")
+		if (!Arrays.asList("@wpcgl", "@dolap1616214080")
 				.contains(driver.findElement(By.id("com.dolap.android:id/userNameTitle")).getText())) {
 			throw new Exception("I am not the one !!");
 		}
 		driver.findElement(By.id("com.dolap.android:id/bottomNavHomePage")).click();
 
-		
-		MobileElement element = cokutanbArat();
+		WebElement element = cokutanbArat();
 
 		doProductCleanupJobs(element);
 	}
 
-	private void doProductCleanupJobs(MobileElement element) {
+	private void doProductCleanupJobs(WebElement element) {
 		boolean endOfPage = false;
 		String previousPageSource = driver.getPageSource();
 		while (!endOfPage) {
@@ -98,15 +102,15 @@ public class TestCokutanFavoriSil {
 		}
 	}
 
-	private void handleTwoListings(MobileElement element) {
+	private void handleTwoListings(WebElement element) {
 
-		clickByCoordinate(200, 1100);
+		clickByCoordinate(150, 900);
 		cleanupProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 1100);
+		clickByCoordinate(700, 900);
 		cleanupProduct();
 		driverBack();
 	}
@@ -117,13 +121,27 @@ public class TestCokutanFavoriSil {
 
 	private void cleanupProduct() {
 
-		driver.findElement(By.id("com.dolap.android:id/imageViewFavorite")).click();
-		//swipeVertical(0.1, 0.7, 0.5, 1000);
-		//deleteComment();
-		
-MobileElement comment = null;
-		
+		try {
+			WebElement fav = driver.findElement(By.id("com.dolap.android:id/imageViewFavorite"));
+			wait20Seconds(fav);
+			fav.click();
+		} catch (NoSuchElementException ex) {
+		}
+
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		WebElement comment = findCommentBar();
+
+		comment.click();
+
+		//implicitlyWait();
+		deleteCommentIfExists();
+
+		imlicitlyWait();
+		driverBack();
+	}
+	
+	private WebElement findCommentBar() {
+		WebElement comment = null;
 		try {
 			comment = driver.findElement(By.id("com.dolap.android:id/buttonProductCommentsNavigator"));
 		} catch (NoSuchElementException ex) {
@@ -137,35 +155,38 @@ MobileElement comment = null;
 				}
 			}
 		}
-		
-		deleteComment();
-
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		return comment;
 	}
 
-	private void deleteComment() {
+	private void deleteCommentIfExists() {
 		try {
-			MobileElement deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
+			WebElement deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
 			if (deleteButton.isDisplayed()) {
 				driver.findElement(By.id("com.dolap.android:id/textViewDelete")).click();
-				driver.findElement(By.id("com.dolap.android:id/textViewDelete")).click();
 				driver.findElement(By.id("com.dolap.android:id/button_action_two")).click();
-				driverBack();
+				
 			}
 		} catch (NoSuchElementException ex) {
 		}
+		
 	}
 
-	private void wait20Seconds(MobileElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOf(element));
+
+	private void wait20Seconds(WebElement element) {
+			WebDriverWait wait = new WebDriverWait(driver, 3);
+			wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
-	private MobileElement cokutanbArat() {
-		MobileElement element = driver.findElement(By.id("com.dolap.android:id/textViewSearchBar"));
+	private WebElement cokutanbArat() {
+		WebElement element = driver.findElement(By.id("com.dolap.android:id/textViewSearchBar"));
 		element.click();
 		element.sendKeys("@cokutanb");
 		driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Search"));
+
+		WebElement sort = driver.findElement(By.id("com.dolap.android:id/viewSortArea"));
+		sort.click();
+
+		driver.findElement(By.xpath("//android.widget.CheckedTextView[@index='3']")).click();
 		return element;
 	}
 
@@ -178,6 +199,7 @@ MobileElement comment = null;
 			touchAction.tap(PointOption.point(x, y)).perform();
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw e;
 		}
 	}
 

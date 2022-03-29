@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Dec 26 21:46:42 TRT 2021</td>
+<td>Started on:</td><td>Tue Mar 29 13:36:48 TRT 2022</td>
 </tr>
-<tr><td>Total time:</td><td>566 seconds (566706 ms)</td>
+<tr><td>Total time:</td><td>483 seconds (483449 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,45 +75,32 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='dolap.TestCokutanFavoriSil.testBasicNoTitle()'><b>testBasicNoTitle</b><br>Test class: dolap.TestCokutanFavoriSil</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:63:173a:89bf:6542%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.0.1&apos;, java.version: &apos;17&apos;
+<td title='dolap.TestDolap.testBasicNoTitle()'><b>testBasicNoTitle</b><br>Test class: dolap.TestDolap</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: UiSelector[INSTANCE=0, RESOURCE_ID=com.dolap.android:id/editTextComment]
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.1.2&apos;, revision: &apos;9a5a329c5a&apos;
+System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:1485:2a9f:9683:7424%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.2.1&apos;, java.version: &apos;17&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , databaseEnabled: false, desired: {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , deviceId: 192.168.1.21:5555, deviceName: S7, fullReset: false, noReset: true, platformName: android, platformVersion: 8.0}, deviceId: 192.168.1.21:5555, deviceManufacturer: samsung, deviceModel: SM-G930F, deviceName: 192.168.1.21:5555, deviceScreenSize: 1440x2560, deviceUDID: 192.168.1.21:5555, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, platform: LINUX, platformName: ANDROID, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
-Session ID: cd248d3c-82a6-42d5-8672-d37bce566003
-*** Element info: {Using=id, value=com.dolap.android:id/imageViewFavorite}
-	at jdk.internal.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+Command: [eccdc06b-2ef3-4645-b03c-036ff97ab3a5, sendKeysToElement {id=79, value=[Ljava.lang.CharSequence;@2be21396}]
+Capabilities {appium:appActivity: com.dolap.android.init.ui.S..., appium:appPackage: com.dolap.android, appium:automationName: UiAutomator1, appium:databaseEnabled: false, appium:desired: {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , deviceId: 192.168.1.21:5555, deviceName: S7, fullReset: false, noReset: true, platformName: android, platformVersion: 8.0}, appium:deviceId: 192.168.1.21:5555, appium:deviceManufacturer: samsung, appium:deviceModel: SM-G930F, appium:deviceName: 192.168.1.21:5555, appium:deviceScreenSize: 1440x2560, appium:deviceUDID: 192.168.1.21:5555, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:platformVersion: 8.0.0, appium:takesScreenshot: true, appium:warnings: {}, appium:webStorageEnabled: false, platformName: android}
+Element: [[AndroidDriver:  on android (eccdc06b-2ef3-4645-b03c-036ff97ab3a5)] -&gt; id: com.dolap.android:id/editTextComment]
+Session ID: eccdc06b-2ef3-4645-b03c-036ff97ab3a5
+	at jdk.internal.reflect.GeneratedConstructorAccessor9.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
-	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at dolap.TestCokutanFavoriSil.cleanupProduct(TestCokutanFavoriSil.java:120)
-	at dolap.TestCokutanFavoriSil.handleTwoListings(TestCokutanFavoriSil.java:110)
-	at dolap.TestCokutanFavoriSil.doProductCleanupJobs(TestCokutanFavoriSil.java:92)
-	at dolap.TestCokutanFavoriSil.testBasicNoTitle(TestCokutanFavoriSil.java:85)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:180)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:558)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:107)
+	at dolap.TestDolap.loveProduct(TestDolap.java:163)
+	at dolap.TestDolap.handleTwoListings(TestDolap.java:130)
+	at dolap.TestDolap.doProductJobs(TestDolap.java:87)
+	at dolap.TestDolap.testBasicNoTitle(TestDolap.java:79)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -142,45 +129,32 @@ Session ID: cd248d3c-82a6-42d5-8672-d37bce566003
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1268124507", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1268124507'><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:63:173a:89bf:6542%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.0.1&apos;, java.version: &apos;17&apos;
+</pre></div><a href='#' onClick='toggleBox("stack-trace61334373", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace61334373'><pre>org.openqa.selenium.NoSuchElementException: UiSelector[INSTANCE=0, RESOURCE_ID=com.dolap.android:id/editTextComment]
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: &apos;4.1.2&apos;, revision: &apos;9a5a329c5a&apos;
+System info: host: &apos;caglas-MBP.home&apos;, ip: &apos;fe80:0:0:0:1485:2a9f:9683:7424%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;12.2.1&apos;, java.version: &apos;17&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , databaseEnabled: false, desired: {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , deviceId: 192.168.1.21:5555, deviceName: S7, fullReset: false, noReset: true, platformName: android, platformVersion: 8.0}, deviceId: 192.168.1.21:5555, deviceManufacturer: samsung, deviceModel: SM-G930F, deviceName: 192.168.1.21:5555, deviceScreenSize: 1440x2560, deviceUDID: 192.168.1.21:5555, fullReset: false, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, platform: LINUX, platformName: ANDROID, platformVersion: 8.0.0, takesScreenshot: true, warnings: {}, webStorageEnabled: false}
-Session ID: cd248d3c-82a6-42d5-8672-d37bce566003
-*** Element info: {Using=id, value=com.dolap.android:id/imageViewFavorite}
-	at jdk.internal.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+Command: [eccdc06b-2ef3-4645-b03c-036ff97ab3a5, sendKeysToElement {id=79, value=[Ljava.lang.CharSequence;@2be21396}]
+Capabilities {appium:appActivity: com.dolap.android.init.ui.S..., appium:appPackage: com.dolap.android, appium:automationName: UiAutomator1, appium:databaseEnabled: false, appium:desired: {appActivity: com.dolap.android.init.ui.S..., appPackage: com.dolap.android, automationName: UiAutomator1, browserName: , deviceId: 192.168.1.21:5555, deviceName: S7, fullReset: false, noReset: true, platformName: android, platformVersion: 8.0}, appium:deviceId: 192.168.1.21:5555, appium:deviceManufacturer: samsung, appium:deviceModel: SM-G930F, appium:deviceName: 192.168.1.21:5555, appium:deviceScreenSize: 1440x2560, appium:deviceUDID: 192.168.1.21:5555, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:platformVersion: 8.0.0, appium:takesScreenshot: true, appium:warnings: {}, appium:webStorageEnabled: false, platformName: android}
+Element: [[AndroidDriver:  on android (eccdc06b-2ef3-4645-b03c-036ff97ab3a5)] -&gt; id: com.dolap.android:id/editTextComment]
+Session ID: eccdc06b-2ef3-4645-b03c-036ff97ab3a5
+	at jdk.internal.reflect.GeneratedConstructorAccessor9.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:69)
-	at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElementById(AndroidDriver.java:1)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-	at dolap.TestCokutanFavoriSil.cleanupProduct(TestCokutanFavoriSil.java:120)
-	at dolap.TestCokutanFavoriSil.handleTwoListings(TestCokutanFavoriSil.java:110)
-	at dolap.TestCokutanFavoriSil.doProductCleanupJobs(TestCokutanFavoriSil.java:92)
-	at dolap.TestCokutanFavoriSil.testBasicNoTitle(TestCokutanFavoriSil.java:85)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:180)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:558)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:251)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:107)
+	at dolap.TestDolap.loveProduct(TestDolap.java:163)
+	at dolap.TestDolap.handleTwoListings(TestDolap.java:130)
+	at dolap.TestDolap.doProductJobs(TestDolap.java:87)
+	at dolap.TestDolap.testBasicNoTitle(TestDolap.java:79)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -210,8 +184,8 @@ Session ID: cd248d3c-82a6-42d5-8672-d37bce566003
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>566</td>
-<td>dolap.TestCokutanFavoriSil@4e91d63f</td></tr>
+<td>483</td>
+<td>dolap.TestDolap@bef2d72</td></tr>
 </table><p>
 </body>
 </html>

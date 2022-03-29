@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
@@ -14,10 +15,8 @@ import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -26,7 +25,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class TestFavoriSil {
 	public static URL url;
 	public static DesiredCapabilities capabilities;
-	public static AndroidDriver<MobileElement> driver;
+	public static AndroidDriver driver;
 
 	// 1
 	@BeforeSuite
@@ -49,8 +48,8 @@ public class TestFavoriSil {
 	    capabilities.setCapability("fullReset", false);
 	    
 		// 4
-		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver = new AndroidDriver(url, capabilities);
+		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 	}
 
 	/*
@@ -99,14 +98,14 @@ public class TestFavoriSil {
 		}
 
 		
-		driver.findElementByXPath("//android.widget.TextView[@text='Favorilerim']").click();
+		driver.findElement(By.xpath("//android.widget.TextView[@text='Favorilerim']")).click();
 		
 		while(driver.findElements(By.id("com.dolap.android:id/imageViewLike")).size()>0) {
-			MobileElement element = driver.findElement(By.id("com.dolap.android:id/imageViewLike"));
+			WebElement element = driver.findElement(By.id("com.dolap.android:id/imageViewLike"));
 			element.click();
 
 	        driver.navigate().back();
-	        driver.findElementByXPath("//android.widget.TextView[@text='Favorilerim']").click();
+	        driver.findElement(By.xpath(("//android.widget.TextView[@text='Favorilerim']"))).click();
 		}
 		
 		

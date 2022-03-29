@@ -2,38 +2,30 @@ package dolap;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Calendar;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
-import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -41,7 +33,7 @@ import io.appium.java_client.touch.offset.PointOption;
 public class TestDolap {
 	public static URL url;
 	public static DesiredCapabilities capabilities;
-	public static AndroidDriver<MobileElement> driver;
+	public static AndroidDriver driver;
 
 	// 1
 	@BeforeSuite
@@ -64,8 +56,12 @@ public class TestDolap {
 		capabilities.setCapability("fullReset", false);
 
 		// 4
-		driver = new AndroidDriver<MobileElement>(url, capabilities);
-		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		driver = new AndroidDriver(url, capabilities);
+		implicitlyWait();
+	}
+
+	private void implicitlyWait() {
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
 
 	@Test(enabled = true)
@@ -78,13 +74,13 @@ public class TestDolap {
 		}
 		driver.findElement(By.id("com.dolap.android:id/bottomNavHomePage")).click();
 
-		MobileElement element = cokutanbArat();
+		WebElement element = cokutanbArat();
 
 		doProductJobs(element);
 
 	}
 
-	private void doProductJobs(MobileElement element) {
+	private void doProductJobs(WebElement element) {
 		boolean endOfPage = false;
 		String previousPageSource = driver.getPageSource();
 		while (!endOfPage) {
@@ -115,59 +111,67 @@ public class TestDolap {
 				.moveTo(PointOption.point(anchor, startPoint)).release().perform();
 	}
 
-	private MobileElement cokutanbArat() {
-		MobileElement element = driver.findElement(By.id("com.dolap.android:id/textViewSearchBar"));
+	private WebElement cokutanbArat() {
+		WebElement element = driver.findElement(By.id("com.dolap.android:id/textViewSearchBar"));
 		element.click();
 		element.sendKeys("@cokutanb");
 		driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Search"));
+
+		WebElement sort = driver.findElement(By.id("com.dolap.android:id/viewSortArea"));
+		sort.click();
+
+		driver.findElement(By.xpath("//android.widget.CheckedTextView[@index='3']")).click();
 		return element;
 	}
 
-	private void handleTwoListings(MobileElement element) {
+	private void handleTwoListings(WebElement element) {
 
-		clickByCoordinate(200, 1100);
+		clickByCoordinate(150, 900);
 		loveProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 1100);
+		clickByCoordinate(700, 900);
 		loveProduct();
 		driverBack();
 	}
 
 	private void loveProduct() {
 
-		driver.findElement(By.id("com.dolap.android:id/imageViewFavorite")).click();
-		MobileElement comment = null;
+		try {
+			WebElement fav = driver.findElement(By.id("com.dolap.android:id/imageViewFavorite"));
+			wait20Seconds(fav);
+			fav.click();
+
+		} catch (NoSuchElementException ex) {
+
+		}
+		WebElement comment = null;
 
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		comment = findCommentBar();
 
-		deleteCommentIfExists();
-
-		comment = findCommentBar();
-
 		comment.click();
 
-		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
-
-		MobileElement editTextComment = driver.findElement(By.id("com.dolap.android:id/editTextComment"));
+		//implicitlyWait();
+		deleteCommentIfExists();
+		
+		WebElement editTextComment = driver.findElement(By.id("com.dolap.android:id/editTextComment"));
 		editTextComment.click();
 
-		editTextComment.sendKeys("Biraz indirim olur mu? "
-				+ new SimpleDateFormat("yyyy/MM/dd HH:mm").format(Calendar.getInstance().getTime()));
+		editTextComment.sendKeys(RandomStringUtils.randomAlphabetic(10));
 
 		driver.findElement(By.id("com.dolap.android:id/buttonSend")).click();
 
 		driver.findElement(By.id("com.dolap.android:id/imageViewBackButton")).click();
 
-		try {
-			MobileElement buttonBid = driver.findElement(By.id("com.dolap.android:id/buttonBid"));
+	/*	try {
+			WebElement buttonBid = driver.findElement(By.id("com.dolap.android:id/buttonBid"));
 			if (buttonBid.isDisplayed()) {
 				buttonBid.click();
 				try {
-					MobileElement buttonBidProduct = driver.findElement(By.id("com.dolap.android:id/buttonBidProduct"));
+					WebElement buttonBidProduct = driver.findElement(By.id("com.dolap.android:id/buttonBidProduct"));
 					if (buttonBidProduct.isDisplayed()) {
 						buttonBidProduct.click();
 					}
@@ -177,14 +181,14 @@ public class TestDolap {
 				driverBack();
 			}
 		} catch (NoSuchElementException ex) {
-		}
+		}*/
 
-		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		implicitlyWait();
 
 	}
 
-	private MobileElement findCommentBar() {
-		MobileElement comment = null;
+	private WebElement findCommentBar() {
+		WebElement comment = null;
 		try {
 			comment = driver.findElement(By.id("com.dolap.android:id/buttonProductCommentsNavigator"));
 		} catch (NoSuchElementException ex) {
@@ -203,28 +207,28 @@ public class TestDolap {
 
 	private void deleteCommentIfExists() {
 		try {
-			MobileElement deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
+			WebElement deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
 			if (deleteButton.isDisplayed()) {
 				driver.findElement(By.id("com.dolap.android:id/textViewDelete")).click();
-				driver.findElement(By.id("com.dolap.android:id/textViewDelete")).click();
 				driver.findElement(By.id("com.dolap.android:id/button_action_two")).click();
-				driverBack();
+				//driverBack();
 			}
 		} catch (NoSuchElementException ex) {
 		}
-		try {
+		/*try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 	}
 
 	private void driverBack() {
 		driver.navigate().back();
 	}
 
-	private void wait20Seconds(MobileElement element) {
+	private void wait20Seconds(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, 7);
 		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
