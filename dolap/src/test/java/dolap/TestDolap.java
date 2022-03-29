@@ -61,7 +61,7 @@ public class TestDolap {
 	}
 
 	private void implicitlyWait() {
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 	}
 
 	@Test(enabled = true)
@@ -126,7 +126,7 @@ public class TestDolap {
 
 	private void handleTwoListings(WebElement element) {
 
-		clickByCoordinate(150, 900);
+		clickByCoordinate(250, 1000);
 		loveProduct();
 		driverBack();
 

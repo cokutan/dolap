@@ -64,7 +64,7 @@ public class TestCokutanFavoriSil {
 	}
 
 	private void imlicitlyWait() {
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 	}
 
 	/*
@@ -104,13 +104,13 @@ public class TestCokutanFavoriSil {
 
 	private void handleTwoListings(WebElement element) {
 
-		clickByCoordinate(150, 900);
+		clickByCoordinate(250, 1000);
 		cleanupProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 900);
+		clickByCoordinate(700, 1000);
 		cleanupProduct();
 		driverBack();
 	}
