@@ -126,13 +126,13 @@ public class TestDolap {
 
 	private void handleTwoListings(WebElement element) {
 
-		clickByCoordinate(250, 1000);
+		clickByCoordinate(230, 1000);
 		loveProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 900);
+		clickByCoordinate(790, 1000);
 		loveProduct();
 		driverBack();
 	}
@@ -166,7 +166,7 @@ public class TestDolap {
 
 		driver.findElement(By.id("com.dolap.android:id/imageViewBackButton")).click();
 
-	/*	try {
+		try {
 			WebElement buttonBid = driver.findElement(By.id("com.dolap.android:id/buttonBid"));
 			if (buttonBid.isDisplayed()) {
 				buttonBid.click();
@@ -181,7 +181,7 @@ public class TestDolap {
 				driverBack();
 			}
 		} catch (NoSuchElementException ex) {
-		}*/
+		}
 
 		implicitlyWait();
 

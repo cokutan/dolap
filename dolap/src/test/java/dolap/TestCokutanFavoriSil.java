@@ -56,8 +56,8 @@ public class TestCokutanFavoriSil {
 		capabilities.setCapability("automationName", "UiAutomator1");
 		capabilities.setCapability("noReset", true);
 		capabilities.setCapability("fullReset", false);
-		capabilities.setCapability("unicodeKeyboard", true);
-		capabilities.setCapability("resetKeyboard", true);
+		//capabilities.setCapability("unicodeKeyboard", true);
+		//capabilities.setCapability("resetKeyboard", true);
 		// 4
 		driver = new AndroidDriver(url, capabilities);
 		imlicitlyWait();
@@ -104,13 +104,13 @@ public class TestCokutanFavoriSil {
 
 	private void handleTwoListings(WebElement element) {
 
-		clickByCoordinate(250, 1000);
+		clickByCoordinate(230, 1000);
 		cleanupProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(700, 1000);
+		clickByCoordinate(790, 1000);
 		cleanupProduct();
 		driverBack();
 	}
