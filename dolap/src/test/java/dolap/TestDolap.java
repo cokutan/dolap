@@ -46,7 +46,7 @@ public class TestDolap {
 		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("platformName", "ANDROID");
 		capabilities.setCapability("deviceName", "S7");
-		capabilities.setCapability("deviceId", "192.168.1.21:5555");
+		capabilities.setCapability("deviceId", "ad081603485804a3c1");
 		capabilities.setCapability("platformVersion", "8.0");
 		capabilities.setCapability("appPackage", "com.dolap.android");
 		capabilities.setCapability("appActivity", "com.dolap.android.init.ui.SplashActivity");
@@ -75,7 +75,9 @@ public class TestDolap {
 		driver.findElement(By.id("com.dolap.android:id/bottomNavHomePage")).click();
 
 		WebElement element = cokutanbArat();
-
+		wait20Seconds(element);
+		swipeByElements(200, 930, 200, 560);
+		wait20Seconds(element);
 		doProductJobs(element);
 
 	}
@@ -86,11 +88,21 @@ public class TestDolap {
 		while (!endOfPage) {
 			handleTwoListings(element);
 			wait20Seconds(element);
-			swipeVertical(0.1, 0.487, 0.5, 1000);
+			// [24,308][513,1227]
+			swipeByElements(200, 1024, 200, 308);
+
 			wait20Seconds(element);
 			endOfPage = previousPageSource.equals(driver.getPageSource());
 			previousPageSource = driver.getPageSource();
 		}
+	}
+
+	// Swipe by elements
+	public void swipeByElements(int startX, int startY, int endX, int endY) {
+
+		new TouchAction(driver).press(PointOption.point(startX, startY))
+				.waitAction(WaitOptions.waitOptions((Duration.ofMillis(1000)))).moveTo(PointOption.point(endX, endY))
+				.release().perform();
 	}
 
 	/**
@@ -126,27 +138,23 @@ public class TestDolap {
 
 	private void handleTwoListings(WebElement element) {
 
-		clickByCoordinate(230, 1000);
+		clickByCoordinate(250, 1100);
 		loveProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(790, 1000);
+		clickByCoordinate(800, 1100);
 		loveProduct();
 		driverBack();
 	}
 
 	private void loveProduct() {
 
-		try {
-			WebElement fav = driver.findElement(By.id("com.dolap.android:id/imageViewFavorite"));
-			wait20Seconds(fav);
-			fav.click();
+		WebElement fav = driver.findElement(By.id("com.dolap.android:id/imageViewFavorite"));
+		wait20Seconds(fav);
+		fav.click();
 
-		} catch (NoSuchElementException ex) {
-
-		}
 		WebElement comment = null;
 
 		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -154,9 +162,9 @@ public class TestDolap {
 
 		comment.click();
 
-		//implicitlyWait();
+		// implicitlyWait();
 		deleteCommentIfExists();
-		
+
 		WebElement editTextComment = driver.findElement(By.id("com.dolap.android:id/editTextComment"));
 		editTextComment.click();
 
@@ -207,21 +215,14 @@ public class TestDolap {
 
 	private void deleteCommentIfExists() {
 		try {
+			swipeVertical(0.1, 0.487, 0.5, 2000);
 			WebElement deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
 			if (deleteButton.isDisplayed()) {
 				driver.findElement(By.id("com.dolap.android:id/textViewDelete")).click();
 				driver.findElement(By.id("com.dolap.android:id/button_action_two")).click();
-				//driverBack();
 			}
-		} catch (NoSuchElementException ex) {
+		} catch (Exception ex) {
 		}
-		/*try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
 	}
 
 	private void driverBack() {
@@ -230,21 +231,12 @@ public class TestDolap {
 
 	private void wait20Seconds(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, 7);
-		try {
-			wait.until(ExpectedConditions.visibilityOf(element));
-		} catch (TimeoutException ex) {
-			driver.navigate().back();
-		}
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
 	public static void clickByCoordinate(int x, int y) {
-		try {
-			// [96,1195][1080,1339]
-			TouchAction touchAction = new TouchAction(driver);
-			touchAction.tap(PointOption.point(x, y)).perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		TouchAction touchAction = new TouchAction(driver);
+		touchAction.tap(PointOption.point(x, y)).perform();
 	}
 
 }

@@ -11,22 +11,18 @@ import java.util.logging.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -48,7 +44,7 @@ public class TestCokutanFavoriSil {
 		capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("platformName", "ANDROID");
 		capabilities.setCapability("deviceName", "S7");
-		capabilities.setCapability("deviceId", "192.168.1.21:5555");
+		capabilities.setCapability("deviceId", "192.168.1.30:5555");
 		capabilities.setCapability("platformVersion", "8.0");
 		capabilities.setCapability("appPackage", "com.dolap.android");
 		capabilities.setCapability("appActivity", "com.dolap.android.init.ui.SplashActivity");
@@ -95,7 +91,11 @@ public class TestCokutanFavoriSil {
 		while (!endOfPage) {
 			handleTwoListings(element);
 			wait20Seconds(element);
-			swipeVertical(0.1, 0.487, 0.5, 1000);
+			try {
+			swipeVertical(0.1, 0.48, 0.5, 1000);
+			}catch(Exception e) {
+				
+			}
 			wait20Seconds(element);
 			endOfPage = previousPageSource.equals(driver.getPageSource());
 			previousPageSource = driver.getPageSource();
@@ -104,13 +104,13 @@ public class TestCokutanFavoriSil {
 
 	private void handleTwoListings(WebElement element) {
 
-		clickByCoordinate(230, 1000);
+		clickByCoordinate(250, 1400);
 		cleanupProduct();
 		driverBack();
 
 		wait20Seconds(element);
 
-		clickByCoordinate(790, 1000);
+		clickByCoordinate(800, 1400);
 		cleanupProduct();
 		driverBack();
 	}
@@ -160,21 +160,27 @@ public class TestCokutanFavoriSil {
 
 	private void deleteCommentIfExists() {
 		try {
+			driverBack();
 			WebElement deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
-			if (deleteButton.isDisplayed()) {
+			while (deleteButton.isDisplayed()) {
 				driver.findElement(By.id("com.dolap.android:id/textViewDelete")).click();
 				driver.findElement(By.id("com.dolap.android:id/button_action_two")).click();
+				deleteButton = driver.findElement(By.id("com.dolap.android:id/textViewDelete"));
 				
 			}
-		} catch (NoSuchElementException ex) {
+		} catch (Exception ex) {
 		}
 		
 	}
 
 
 	private void wait20Seconds(WebElement element) {
-			WebDriverWait wait = new WebDriverWait(driver, 3);
+		WebDriverWait wait = new WebDriverWait(driver, 7);
+		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
+		} catch (TimeoutException ex) {
+			driver.navigate().back();
+		}
 	}
 
 	private WebElement cokutanbArat() {
